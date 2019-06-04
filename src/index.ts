@@ -1,5 +1,5 @@
 import WebSocket, { Data } from 'ws';
-import { FeatureMatrixBase, Options, FeatureStorage } from 'featurematrix';
+import { FeatureMatrixBase, Options, FeatureStorage } from 'featurematrix-js';
 import { MemoryStorage } from './memory-storage';
 
 export class FeatureMatrix extends FeatureMatrixBase {

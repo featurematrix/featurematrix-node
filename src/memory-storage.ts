@@ -1,4 +1,4 @@
-import { Storage, StoredFeature } from 'featurematrix';
+import { Storage, StoredFeature } from 'featurematrix-js';
 
 export class MemoryStorage implements Storage {
     features: StoredFeature[] = [];

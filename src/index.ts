@@ -16,7 +16,7 @@ export class FeatureMatrix extends FeatureMatrixBase {
 
     private init(options: Options) {
         const { appKey, envKey } = options;
-        const ws = new WebSocket(`ws://localhost:8000/live?envKey=${envKey}&appKey=${appKey}`);
+        const ws = new WebSocket(`wss://live.featurematrix.io?envKey=${envKey}&appKey=${appKey}`);
         this.initListeners(ws);
     }
 

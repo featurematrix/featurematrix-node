@@ -3,6 +3,8 @@ import { FeatureMatrixBase, Options, FeatureStorage } from 'featurematrix';
 import { MemoryStorage } from './memory-storage';
 
 export class FeatureMatrix extends FeatureMatrixBase {
+    private options: Options;
+
     constructor(options: Options) {
         super();
         this.featureStorage = new FeatureStorage(new MemoryStorage());
@@ -11,16 +13,21 @@ export class FeatureMatrix extends FeatureMatrixBase {
             throw new Error('appKey and envKey are required');
         }
 
-        this.init(options);
+        this.options = options;
+        this.connect();
     }
 
-    private init(options: Options) {
-        const { appKey, envKey } = options;
+    connect() {
+        const { appKey, envKey } = this.options;
         const ws = new WebSocket(`wss://live.featurematrix.io?envKey=${envKey}&appKey=${appKey}`);
         this.initListeners(ws);
     }
 
     initListeners(ws: WebSocket) {
+        ws.addEventListener('open', () => {
+            super.onConnect();
+        });
+
         ws.on('message', (data: Data) => {
             const parsedMessage = JSON.parse(data.toString());
             super.onMessage(parsedMessage);
@@ -31,6 +38,8 @@ export class FeatureMatrix extends FeatureMatrixBase {
         });
 
         ws.on('close', (code, reason)=> {
+            super.onClose();
+
             try {
                 console.error(JSON.parse(reason));
             } catch (err) {

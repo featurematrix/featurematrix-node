@@ -1,6 +1,6 @@
 {
     "name": "featurematrix-node",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "FeatureMatrix Node SDK",
     "main": "index.js",
     "scripts": {
@@ -23,7 +23,7 @@
     },
     "homepage": "https://gitlab.com/featurematrix/featurematrix-node#readme",
     "dependencies": {
-        "featurematrix-js": "^0.0.2",
+        "featurematrix-js": "latest",
         "ws": "^7.0.0"
     },
     "devDependencies": {

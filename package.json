@@ -1,7 +1,7 @@
 {
     "name": "featurematrix-node",
-    "version": "0.0.5",
-    "description": "FeatureMatrix Node SDK",
+    "version": "0.0.6",
+    "description": "FeatureMatrix Node Client",
     "main": "index.js",
     "scripts": {
         "build": "rm -rf dist && tsc"
@@ -17,11 +17,11 @@
         "toggle"
     ],
     "author": "Nairi Narinyan",
-    "license": "UNLICENSED",
+    "license": "ISC",
     "bugs": {
         "url": "https://gitlab.com/featurematrix/featurematrix-node/issues"
     },
-    "homepage": "https://gitlab.com/featurematrix/featurematrix-node#readme",
+    "homepage": "https://featurematrix.io",
     "dependencies": {
         "featurematrix-js": "latest",
         "ws": "^7.0.0"

@@ -3,4 +3,5 @@ export declare class MemoryStorage implements Storage {
     features: StoredFeature[];
     persistFeatures(features: StoredFeature[]): void;
     getFeatures(): StoredFeature[];
+    getFeature(featureKey: string): StoredFeature;
 }

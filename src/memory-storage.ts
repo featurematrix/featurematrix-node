@@ -10,4 +10,8 @@ export class MemoryStorage implements Storage {
     getFeatures(): StoredFeature[] {
         return this.features;
     }
+
+    getFeature(featureKey: string): StoredFeature {
+        return this.features.find(f => f.key === featureKey);
+    } 
 }
